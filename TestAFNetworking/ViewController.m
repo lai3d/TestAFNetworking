@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
+#import <UIWebView+AFNetworking.h>
 
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-- (IBAction)touchUpInside:(id)sender;
+
+@property (strong, nonatomic) NSURLRequest *htmlRequest;
 
 @end
 
@@ -21,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.htmlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://global.138.com/en-gb/mobile/casino#!/slots"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,7 +33,13 @@
 }
 
 - (void)loadWebView {
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://global.138.com/en-gb/mobile/casino#!/slots"]]];
+    [self.webView loadRequest:self.htmlRequest
+                     progress:nil
+                      success:^NSString * _Nonnull(NSHTTPURLResponse * _Nonnull response, NSString * _Nonnull HTML) {
+                          NSLog(@"Success");
+                          return HTML;
+                      }
+                      failure:nil];
 }
 
 - (IBAction)touchUpInside:(id)sender {
