@@ -10,6 +10,10 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+- (IBAction)touchUpInside:(id)sender;
+
 @end
 
 @implementation ViewController
@@ -24,4 +28,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadWebView {
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://global.138.com/en-gb/mobile/casino#!/slots"]]];
+}
+
+- (IBAction)touchUpInside:(id)sender {
+    NSLog(@"Touch up inside");
+    
+    [self loadWebView];
+}
 @end
