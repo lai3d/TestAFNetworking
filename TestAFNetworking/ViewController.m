@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 @property (strong, nonatomic) NSURLRequest *homeHtmlRequest;
 @property (strong, nonatomic) NSURLRequest *casinotmlRequest;
@@ -28,6 +29,8 @@
     self.homeHtmlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://mobsbglobal.138.com"]];
     
     self.casinotmlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://global.138.com/en-gb/mobile/casino#!/slots"]];
+    
+    [self.progressView setHidden:TRUE];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,13 +39,19 @@
 }
 
 - (void)loadWebView:(NSURLRequest *)htmlRequest {
+    //NSProgress *progress = [NSProgress alloc];
+    //self.progressView.observedProgress = progress;
+    // How to use this damn progress? I tried several ways, but none of them works!
+    
     [self.webView loadRequest:htmlRequest
                      progress:nil
                       success:^NSString * _Nonnull(NSHTTPURLResponse * _Nonnull response, NSString * _Nonnull HTML) {
                           NSLog(@"Success");
                           return HTML;
                       }
-                      failure:nil];
+                      failure:^void(NSError *error) {
+                          NSLog(@"Error");
+                      }];
 }
 
 - (IBAction)homeClick:(id)sender {

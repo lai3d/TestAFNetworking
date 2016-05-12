@@ -46,37 +46,55 @@
                                     <action selector="homeClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JiX-9y-kKG"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Y14-B8-2v9">
+                                <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="125" y="333" width="150" height="2"/>
+                                </variation>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rtp-sG-W3m" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3QW-5U-ird"/>
                             <constraint firstItem="ks0-fQ-hUO" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Fnd-sq-9cq"/>
                             <constraint firstItem="3lS-Wa-nbL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HcV-Em-5Vq"/>
+                            <constraint firstItem="Y14-B8-2v9" firstAttribute="centerX" secondItem="ks0-fQ-hUO" secondAttribute="centerX" id="VR5-Im-lom"/>
                             <constraint firstItem="3lS-Wa-nbL" firstAttribute="leading" secondItem="rtp-sG-W3m" secondAttribute="trailing" constant="77" id="dff-fe-FWN"/>
                             <constraint firstItem="ks0-fQ-hUO" firstAttribute="top" secondItem="3lS-Wa-nbL" secondAttribute="bottom" constant="2" id="fXF-Za-QN7"/>
                             <constraint firstItem="3lS-Wa-nbL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jOt-fS-WGm"/>
+                            <constraint firstItem="Y14-B8-2v9" firstAttribute="centerY" secondItem="ks0-fQ-hUO" secondAttribute="centerY" id="m36-4j-6d0"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ks0-fQ-hUO" secondAttribute="bottom" id="nCQ-at-ggW"/>
+                            <constraint firstItem="Y14-B8-2v9" firstAttribute="width" secondItem="ks0-fQ-hUO" secondAttribute="width" id="pf3-ZL-GVE"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="rtp-sG-W3m"/>
+                                <exclude reference="Y14-B8-2v9"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="3QW-5U-ird"/>
                                 <exclude reference="dff-fe-FWN"/>
+                                <exclude reference="VR5-Im-lom"/>
+                                <exclude reference="m36-4j-6d0"/>
+                                <exclude reference="pf3-ZL-GVE"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="rtp-sG-W3m"/>
+                                <include reference="Y14-B8-2v9"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="3QW-5U-ird"/>
                                 <include reference="dff-fe-FWN"/>
+                                <include reference="VR5-Im-lom"/>
+                                <include reference="m36-4j-6d0"/>
+                                <include reference="pf3-ZL-GVE"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="progressView" destination="Y14-B8-2v9" id="dZ2-e9-E4Z"/>
                         <outlet property="webView" destination="ks0-fQ-hUO" id="w9l-fY-X9V"/>
                     </connections>
                 </viewController>
