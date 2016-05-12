@@ -50,7 +50,7 @@
                           return HTML;
                       }
                       failure:^void(NSError *error) {
-                          NSLog(@"Error");
+                          NSLog(@"Error: %@", error.description);
                       }];
 }
 
